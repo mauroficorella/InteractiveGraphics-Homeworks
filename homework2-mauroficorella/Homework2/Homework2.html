@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+#version 300 es
+
+in vec4 aPosition;
+in vec4 aColor;
+in vec2 aTexCoord;
+in vec2 hTexCoord;
+in vec2 nTexCoord;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+out vec4 vColor;
+out vec2 vTexCoord;
+out vec2 vTextureHeadCoord;
+out vec2 vTextureNoseCoord;
+
+void main()
+{
+    vColor = aColor;
+    vTexCoord = aTexCoord;
+    vTextureHeadCoord = hTexCoord;
+    vTextureNoseCoord = nTexCoord;
+    gl_Position = projectionMatrix * modelViewMatrix * aPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+#version 300 es
+
+precision mediump float;
+
+in vec4 vColor;
+in vec2 vTexCoord;
+in vec2 vTextureHeadCoord;
+in vec2 vTextureNoseCoord;
+
+uniform sampler2D texture0;
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+uniform sampler2D texture3;
+uniform sampler2D texture4;
+uniform sampler2D texture5;
+uniform bool flagTexGrizzly;
+uniform bool flagTexTree;
+uniform bool flagTexLog;
+uniform bool flagTexFace;
+uniform bool flagTexNose;
+uniform bool flagTexMeadow;
+
+out vec4 fColor;
+
+void main()
+{
+    vec4 grizzlyColorTex = texture(texture0, vTexCoord);
+    vec4 treeColorTex = texture(texture1, vTexCoord);
+    vec4 logColorTex = texture(texture2, vTexCoord);
+    vec4 faceColorTex = texture(texture3, vTextureHeadCoord);
+    vec4 noseColorTex = texture(texture4, vTextureNoseCoord);
+    vec4 meadowColorTex = texture(texture5, vTexCoord);
+
+    if (flagTexGrizzly == true)   {
+        fColor = grizzlyColorTex;
+    }
+    else if (flagTexTree == true)   {
+        fColor = treeColorTex;
+    }
+    else if (flagTexLog == true)    {
+        fColor = logColorTex;
+    }
+    else if (flagTexFace == true)   {
+        fColor = faceColorTex;
+    }
+    else if (flagTexNose == true)   {
+        fColor = noseColorTex;
+    }
+    else if (flagTexMeadow == true)   {
+        fColor = meadowColorTex;
+    }
+    else{
+        fColor = vColor;
+    }
+}
+</script>
+
+<script type="text/javascript" src="../Common/InitShaders.js"></script>
+<script type="text/javascript" src="../Common/MVnew.js"></script>
+<script type="text/javascript" src="Homework2.js"></script>
+
+<div>
+    <button id = "enableAnimation" style = "border-radius: 4px; background-color: #008CBA; border: none; color: white; padding: 8px; text-align: center; text-decoration: none; display: inline-block; cursor: pointer;"><font face="Verdana" size="3">Start/Stop Animation</font></button>
+</div><br/>
+
+<body>
+<canvas id="gl-canvas" width="1024" height="1024">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<img id = "texImage0" src = "grizzly.jpg" hidden></img>
+<img id = "texImage1" src = "foliage.jpg" hidden></img>
+<img id = "texImage2" src = "log.jpg" hidden></img>
+<img id = "texImage3" src = "occhi.png" hidden></img>
+<img id = "texImage4" src = "nose.png" hidden></img>
+<img id = "texImage5" src = "meadow.jpg" hidden></img>
+</body>
+</html>

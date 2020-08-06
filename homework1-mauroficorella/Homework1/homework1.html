@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<h1><font face="Verdana" size="6">Control Sliders</font></h1>  
+<div>
+    <div>
+        <font face="Verdana" size="3">zNear: 0</font>
+        <input id="zNearSlider" type="range" min="0.0" max="3" step="0.1" value="0.3" onchange="updateZNearValue(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">3</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="zNear"></span></font>
+    </div>
+    <script>
+        var zNearSlider = document.getElementById("zNearSlider");
+        var zNearOutput = document.getElementById("zNear");
+        zNearOutput.innerHTML = zNearSlider.value;
+
+        function updateZNearValue(zNear) {
+            zNearOutput.innerHTML = zNear;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">zFar: 3</font>
+        <input id="zFarSlider" type="range" min="3" max="10" step="1.0" value="3" onchange="updateZFarValue(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; fill:#008CBA; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">10</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="zFar"></span></font>
+    </div>
+    <script>
+        var zFarSlider = document.getElementById("zFarSlider");
+        var zFarOutput = document.getElementById("zFar");
+        zFarOutput.innerHTML = zFarSlider.value;
+
+        function updateZFarValue(zFar) {
+            zFarOutput.innerHTML = zFar;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">radius: 0.1</font>
+        <input id="radiusSlider" type="range" min="0.1" max="10" step="0.1" value="2.0" onchange="updateRadiusValue(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">10</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="radius"></span></font>
+    </div>
+    <script>
+        var radiusSlider = document.getElementById("radiusSlider");
+        var radiusOutput = document.getElementById("radius");
+        radiusOutput.innerHTML = radiusSlider.value;
+
+        function updateRadiusValue(radius) {
+            radiusOutput.innerHTML = radius;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">theta: -180</font>
+        <input id="thetaSlider" type="range" min="-180" max="180" step="5" value="0.0" onchange="updateThetaValue(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">180</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="theta"></span></font>
+    </div>
+    <script>
+        var thetaSlider = document.getElementById("thetaSlider");
+        var thetaOutput = document.getElementById("theta");
+        thetaOutput.innerHTML = thetaSlider.value;
+
+        function updateThetaValue(theta) {
+            thetaOutput.innerHTML = theta;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">phi: -180</font>
+        <input id="phiSlider" type="range" min="-180" max="180" step="5" value="0.0" onchange="updatePhiValue(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">180</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="phi"></span></font>
+    </div>
+    <script>
+        var phiSlider = document.getElementById("phiSlider");
+        var phiOutput = document.getElementById("phi");
+        phiOutput.innerHTML = phiSlider.value;
+
+        function updatePhiValue(phi) {
+            phiOutput.innerHTML = phi;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">fov: 10</font>
+        <input id="fovSlider" type="range" min="10" max="120" step="5" value="50" onchange="updateFovValue(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">120</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="fov"></span></font>
+    </div>
+    <script>
+        var fovSlider = document.getElementById("fovSlider");
+        var fovOutput = document.getElementById("fov");
+        fovOutput.innerHTML = fovSlider.value;
+
+        function updateFovValue(fov) {
+            fovOutput.innerHTML = fov;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">aspect: 0.5</font>
+        <input id="aspectSlider" type="range" min="0.5" max="2" step="0.1" value="1" onchange="updateAspectValue(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">2</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="aspect"></span></font>
+    </div>
+    <script>
+        var aspectSlider = document.getElementById("aspectSlider");
+        var aspectOutput = document.getElementById("aspect");
+        aspectOutput.innerHTML = aspectSlider.value;
+
+        function updateAspectValue(aspect) {
+            aspectOutput.innerHTML = aspect;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">Spotlight X position: -2</font>
+        <input id="sPositionSliderX" type="range" min="-2.0" max="2.0" step="0.1" value="0.0" onchange="updateSXPosition(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">2</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="sX"></span></font>
+    </div>
+    <script>
+        var spotXPositionSlider = document.getElementById("sPositionSliderX");
+        var spotXPositionOutput = document.getElementById("sX");
+        spotXPositionOutput.innerHTML = spotXPositionSlider.value;
+
+        function updateSXPosition(sX) {
+            spotXPositionOutput.innerHTML = sX;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">Spotlight Y position: -2</font>
+        <input id="sPositionSliderY" type="range" min="-2.0" max="2.0" step="0.1" value="0.0" onchange="updateSYPosition(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">2</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="sY"></span></font>
+    </div>
+    <script>
+        var spotYPositionSlider = document.getElementById("sPositionSliderY");
+        var spotYPositionOutput = document.getElementById("sY");
+        spotYPositionOutput.innerHTML = spotYPositionSlider.value;
+
+        function updateSYPosition(sY) {
+            spotYPositionOutput.innerHTML = sY;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">Spotlight Z position: 0</font>
+        <input id="sPositionSliderZ" type="range" min="0.0" max="10.0" step="0.1" value="0.0" onchange="updateSZPosition(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">10</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="sZ"></span></font>
+    </div>
+    <script>
+        var spotZPositionSlider = document.getElementById("sPositionSliderZ");
+        var spotZPositionOutput = document.getElementById("sZ");
+        spotZPositionOutput.innerHTML = spotZPositionSlider.value;
+
+        function updateSZPosition(sZ) {
+            spotZPositionOutput.innerHTML = sZ;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">Spotlight X direction: -2</font>
+        <input id="sDirectionSliderX" type="range" min="-2.0" max="2.0" step="0.1" value="0.0" onchange="updateSXDirection(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">2</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="sXD"></span></font>
+    </div>
+    <script>
+        var spotXDirectionSlider = document.getElementById("sDirectionSliderX");
+        var spotXDirectionOutput = document.getElementById("sXD");
+        spotXDirectionOutput.innerHTML = spotXDirectionSlider.value;
+
+        function updateSXDirection(sXD) {
+            spotXDirectionOutput.innerHTML = sXD;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">Spotlight Y direction: -2</font>
+        <input id="sDirectionSliderY" type="range" min="-2.0" max="2.0" step="0.1" value="0.0" onchange="updateSYDirection(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">2</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="sYD"></span></font>
+    </div>
+    <script>
+        var spotYDirectionSlider = document.getElementById("sDirectionSliderY");
+        var spotYDirectionOutput = document.getElementById("sYD");
+        spotYDirectionOutput.innerHTML = spotYDirectionSlider.value;
+
+        function updateSYDirection(sYD) {
+            spotYDirectionOutput.innerHTML = sYD;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">Spotlight Cutoff: 0</font>
+        <input id="sCutoff" type="range" min="0.0" max="90.0" step="0.5" value="2.5" onchange="updateCutoff(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">90</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="cutoff"></span></font>
+    </div>
+    <script>
+        var cutoffSlider = document.getElementById("sCutoff");
+        var cutoffOutput = document.getElementById("cutoff");
+        cutoffOutput.innerHTML = cutoffSlider.value;
+
+        function updateCutoff(cutoff) {
+            cutoffOutput.innerHTML = cutoff;
+        }
+    </script>
+    <div>
+        <font face="Verdana" size="3">Spotlight Exponent: 0</font>
+        <input id="sExp" type="range"  min="0.0" max="500.0" step="1.0" value="80.0" onchange="updateExponent(this.value)" style="-webkit-appearance: none; height: 15px; border-radius: 5px; background: #d3d3d3; outline: none; opacity: 0.7; -webkit-transition: .2s; transition: opacity .2s; " />
+        <font face="Verdana" size="3">500</font>
+        &emsp;<font face="Verdana" size="2">Value: <span id="exponent"></span></font>
+    </div>
+    <script>
+        var exponentSlider = document.getElementById("sExp");
+        var exponentOutput = document.getElementById("exponent");
+        exponentOutput.innerHTML = exponentSlider.value;
+
+        function updateExponent(exponent) {
+            exponentOutput.innerHTML = exponent;
+        }
+    </script>
+</div>
+<div>
+	<div>
+        <br>
+        <button id = "enableTexture" style = "border-radius: 4px; background-color: #008CBA; border: none; color: white; padding: 8px; text-align: center; text-decoration: none; display: inline-block; cursor: pointer;"><font face="Verdana" size="3">Enable Texture</font></button>
+        &emsp;
+        <button id = "disableTexture" style = "border-radius: 4px; background-color: #008CBA; border: none; color: white; padding: 8px; text-align: center; text-decoration: none; display: inline-block; cursor: pointer;"><font face="Verdana" size="3">Disable Texture</font></button>
+        &emsp;
+        <button id = "spotButton" style = "border-radius: 4px; background-color: #008CBA; border: none; color: white; padding: 8px; text-align: center; text-decoration: none; display: inline-block; cursor: pointer;"><font face="Verdana" size="3">Enable/Disable Spotlight</font></button>
+    </div>
+</div>	
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+#version 300 es
+
+in  vec4 aPosition;
+in  vec3 aNormal;
+in  vec4 aColor;
+in vec2 aTexCoord;
+
+uniform mat4 uModelViewMatrix;
+uniform mat4 uProjectionMatrix;
+uniform mat3 uNormalMatrix;
+uniform vec4 spotLightPosition;
+uniform vec4 spotLightDirection;
+uniform vec4 dirLightPosition;
+
+out vec3 N, spotL, spotD;
+out vec3 dirL;
+out vec4 vColor;
+out vec2 vTexCoord;
+out vec3 pLightDirection;
+
+void main()
+{
+    vec3 pos = ( uModelViewMatrix * aPosition ).xyz;
+	
+	//SPOTLIGHT
+    if (spotLightPosition.w == 0.0) {
+        spotL = normalize(spotLightPosition.xyz);
+    } else {
+        spotL = normalize(spotLightPosition.xyz - pos);
+    }
+    N = normalize( uNormalMatrix * aNormal.xyz );
+    spotD = normalize(spotLightDirection.xyz);
+
+	//DIRECTIONAL LIGHT
+    if (dirLightPosition.w == 0.0)  {
+        dirL = normalize(dirLightPosition.xyz);
+    }
+    else{
+        dirL = normalize(dirLightPosition.xyz - pos);
+    }
+
+    pLightDirection = vec3(spotLightPosition.xyz - aPosition.xyz);
+    vColor = aColor;
+    vTexCoord = aTexCoord;
+    gl_Position = uProjectionMatrix * uModelViewMatrix * aPosition;
+}
+
+
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+#version 300 es
+
+precision mediump float;
+
+in vec4 vColor;
+in vec2 vTexCoord;
+in vec3 N, spotL, spotE, spotD;
+in vec3 dirL, dirE;
+in vec3 pLightDirection;
+
+uniform vec4 spotAmbientProduct, spotDiffuseProduct;
+uniform vec4 dirAmbientProduct, dirDiffuseProduct;
+uniform float shininess;
+uniform float lCutOff;
+uniform sampler2D uTextureMap;
+uniform vec4 AM;
+uniform float spotExponent;
+uniform bool sFlag, tFlag;
+
+out vec4 fColor;
+
+void main() 
+{
+    float spotCosineCutoff = cos(lCutOff);
+    float dist = length(pLightDirection);
+    float constantAtt = 2.0; 
+    float linearAtt = 1.0;
+    float quadraticAtt = 0.5;
+    float spotAttenuation = 1.0/(constantAtt + linearAtt*dist + quadraticAtt*pow(dist,2.0));
+    float directionalConstant = max( dot(dirL, N), 0.0 );
+    float spotlightConstant = max( dot(spotL, N), 0.0 );
+    float cos = max(dot(normalize(spotD), normalize(-spotL)),0.0);
+    float spotFactor = pow(cos,spotExponent);
+    vec4 AG = vec4(0.0, 0.0, 0.0, 1.0);
+    vec4 cartoonDirectional;
+    vec4 cartoonSpotlight;
+
+    //SPOTLIGHT
+    vec4 spotAmbient = spotAmbientProduct*spotAttenuation*spotFactor;
+    float spotKd = max( dot(spotL, N), 0.0 );
+    vec4 spotDiffuse = spotKd*spotDiffuseProduct*spotAttenuation*spotFactor;
+    
+    //DIRECTIONAL LIGHT
+    vec4 dirAmbient = dirAmbientProduct;
+    float dirKd = max(dot(dirL,N),0.0);
+    vec4 dirDiffuse = dirKd*dirDiffuseProduct;
+    
+    //CARTOON SHADING
+    vec4 directionalCi = (AG * AM) + dirAmbient + dirDiffuse;
+    vec4 directionalCs = (AG * AM) + dirAmbient;
+    if (directionalConstant >= 0.5) {
+        cartoonDirectional = directionalCi;
+    } 
+    else{
+        cartoonDirectional = directionalCs;
+    }
+    vec4 spotlightCi = (AG * AM) + spotAmbient + spotDiffuse;
+    vec4 spotlightCs = (AG * AM) + spotAmbient;
+    if (spotlightConstant >= 0.5) {
+        cartoonSpotlight = spotlightCi;
+    } 
+    else{
+        cartoonSpotlight = spotlightCs;
+    }
+
+    if (sFlag)  {
+        if(cos >= spotCosineCutoff) {
+            if (tFlag)  {
+                fColor = (cartoonDirectional + cartoonSpotlight + vColor)*texture(uTextureMap, vTexCoord);
+            }
+            else{
+                fColor = cartoonDirectional + cartoonSpotlight + vColor;
+            }
+        }
+        else{
+            if (tFlag)  {
+                fColor = (cartoonDirectional + spotAmbient + vColor)*texture(uTextureMap, vTexCoord);
+            }
+            else{
+                fColor = cartoonDirectional + spotAmbient + vColor;
+            }
+        }
+    }
+    else{
+        if (tFlag)  {
+            fColor = (cartoonDirectional + vColor)*texture(uTextureMap, vTexCoord);
+        }
+        else{
+            fColor = cartoonDirectional + vColor;
+        }
+    }
+    fColor.a = 1.0;
+}
+</script>
+
+<script type="text/javascript" src="../Common/InitShaders.js"></script>
+<script type="text/javascript" src="../Common/MVnew.js"></script>
+<script type="text/javascript" src="homework1.js"></script>
+
+<body>
+<canvas id="gl-canvas" width="1024" height="1024">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<img id = "texImage" src = "texture.jpg" hidden></img>
+</body>
+</html>
